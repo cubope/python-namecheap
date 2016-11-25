@@ -5,7 +5,9 @@ class Domains(Response):
     def getList(self, **kwargs):
         """
         Command: `namecheap.domains.getList`
-        [Online documentation](https://www.namecheap.com/support/api/methods/domains/get-list.aspx)
+        [Online documentation](
+            https://www.namecheap.com/support/api/methods/domains/get-list.aspx
+        )
         """
         return self._request(
             command='namecheap.domains.getList',
@@ -50,7 +52,7 @@ class Domains(Response):
            'AuxBillingEmailAddress'
         )
 
-        if required_kwargs not in kwargs:
+        if not all(k in kwargs for k in required_kwargs):
             raise Exception('Missing parameters, check the documentation.')
 
         return self._request(
@@ -61,7 +63,7 @@ class Domains(Response):
 
     def renew(self, **kwargs):
         """
-        Command: `namecheap.domains.getList`
+        Command: `namecheap.domains.renew`
         [Online documentation](
             https://www.namecheap.com/support/api/methods/domains/renew.aspx
         )
@@ -70,11 +72,11 @@ class Domains(Response):
            'DomainName', 'Years',
         )
 
-        if required_kwargs not in kwargs:
+        if not all(k in kwargs for k in required_kwargs):
             raise Exception('Missing parameters, check the documentation.')
 
         return self._request(
-            'namecheap.domains.create',
-            placeholder='DomainContactsResult',
+            'namecheap.domains.renew',
+            placeholder='DomainRenewResult',
             args=kwargs
         )
