@@ -1,5 +1,5 @@
 beautifulsoup4==4.5.1
 lxml==3.6.4
-requests==2.20.0
+requests==2.31.0
 Sphinx
 sphinx_rtd_theme
